@@ -1,0 +1,3 @@
+[submodule "depy"]
+	path = depy
+	url = git@github.com:PeepQ/depy.git
