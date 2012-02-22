@@ -1,6 +1,7 @@
-from depy.depy import * 
+from depy.depy import *
+import sys 
 
-novel = VisualNovel("theboywholived.db")
+novel = VisualNovel(sys.argv[1])
 
 currentScene = novel.get_scene(novel.current_scene)
 
@@ -21,7 +22,8 @@ while(currentScene is not None):
 
 		choiceInd = int(option)
 		userOption = currentDialogue.options[choiceInd]
-		print userOption.text
+		if userOption.text is not None:
+			print userOption.text
 		if(userOption.outcome_type == Outcome.DIALOGUE):
 			currentDialogue = novel.get_dialogue(userOption.outcome_ref)
 		elif (userOption.outcome_type == Outcome.SCENE):
